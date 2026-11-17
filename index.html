@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Hurbil · Siempre cerca de ti</title>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@600&family=Nunito:wght@400;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#F8FAFC;--c:#fff;--bd:#E2E8F0;--p:#638BB2;--ph:#4F769C;--s:#74A88E;--sb:#EDF5F1;--t:#1E293B;--pt:#fff;--st:#1E293B;--r:#B42318}
+body.hc{--bg:#000;--c:#000;--bd:#FFE600;--p:#FFE600;--ph:#fff;--s:#FFE600;--sb:#1a1a00;--t:#FFE600;--pt:#000;--st:#000;--r:#FFE600}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--t);font:1rem/1.55 Nunito,system-ui,sans-serif}
+a{color:var(--p);font-weight:700}h1,h2,h3{font-family:Fredoka,Nunito,sans-serif;color:var(--p);line-height:1.2;margin:.2em 0}
+header{background:var(--c);border-bottom:2px solid var(--bd);position:sticky;top:0;z-index:5}
+.hw{display:flex;flex-wrap:wrap;gap:.6rem 1rem;align-items:center;justify-content:space-between;padding:.6rem 1rem;max-width:1100px;margin:auto}
+.lg{display:flex;align-items:center;gap:.5rem;text-decoration:none}.lg svg{width:54px;height:54px}.lg b{font:600 1.7rem Fredoka,sans-serif;color:#638BB2;display:block;line-height:1}.lg small{color:#638BB2;font-weight:700}
+body.hc .lg b,body.hc .lg small{color:#FFE600}
+.ct{display:flex;flex-wrap:wrap;gap:.4rem;align-items:center}
+button{font:inherit;cursor:pointer;color:inherit}
+.seg{display:inline-flex;border:2px solid var(--p);border-radius:.7rem;overflow:hidden}.seg button{border:0;background:var(--c);padding:.4rem .8rem;font-weight:800}
+.seg button[aria-pressed=true],.ib[aria-pressed=true],.sw[aria-checked=true]{background:var(--p);color:var(--pt)}
+.ib,.sw{border:2px solid var(--p);background:var(--c);border-radius:.7rem;padding:.4rem .8rem;font-weight:800;min-height:44px}
+main{max-width:1100px;margin:auto;padding:1rem 1rem 7rem}
+.card{background:var(--c);border:2px solid var(--bd);border-radius:1rem;padding:1.1rem;margin:.8rem 0;box-shadow:0 2px 8px #1e293b14}
+.row{display:flex;gap:.6rem;align-items:center;flex-wrap:wrap}.row>.grow{flex:1}
+.btn{background:var(--p);color:var(--pt);border:2px solid var(--p);border-radius:.8rem;padding:.8rem 1.3rem;font-weight:800;font-size:1.1rem;min-height:48px;text-decoration:none;display:inline-block}
+.btn:hover{background:var(--ph)}.btn.g{background:var(--c);color:var(--p)}.btn.s{background:var(--s);border-color:var(--s);color:var(--st)}
+body.hc .btn.g{color:#FFE600}.btn:disabled{opacity:.45;cursor:not-allowed}
+.spk{flex:none;width:46px;height:46px;border-radius:50%;border:2px solid var(--s);background:var(--sb);font-size:1.3rem}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:1rem}
+.big{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.4rem;min-height:150px;border:3px solid var(--p);border-radius:1.2rem;background:var(--c);text-decoration:none;font:600 1.5rem Fredoka,sans-serif;text-align:center;padding:1rem;flex:1}
+.big span{font-size:2.6rem}.big:hover{background:var(--sb)}
+.opt{display:flex;gap:.6rem;align-items:center;text-align:left;flex:1;border:2px solid var(--bd);background:var(--c);border-radius:.9rem;padding:.8rem 1rem;font-weight:700;min-height:56px}
+.opt.on{border:3px solid var(--p);background:var(--sb)}.opt .ic{font-size:1.8rem}
+.bd{display:inline-block;background:var(--sb);color:var(--st);border:1px solid var(--s);border-radius:2rem;padding:.1rem .7rem;font-weight:800}
+body.hc .bd{color:#FFE600}.mut{opacity:.85}
+.bar{height:14px;background:var(--bd);border-radius:9px;overflow:hidden}.bar i{display:block;height:100%;background:var(--s)}
+input,textarea,select{font:inherit;width:100%;padding:.7rem;border:2px solid var(--bd);border-radius:.7rem;background:var(--c);color:var(--t);min-height:48px}
+input:focus,textarea:focus,button:focus-visible,a:focus-visible,select:focus{outline:3px solid var(--p);outline-offset:2px}
+label{font-weight:800;display:block;margin:.5rem 0 .2rem}
+.fab{position:fixed;right:1rem;bottom:1rem;display:flex;flex-direction:column;gap:.6rem;z-index:6}
+.fab button{border:0;border-radius:2rem;padding:.9rem 1.3rem;font-weight:800;font-size:1.1rem;box-shadow:0 4px 14px #0004}
+.sos{background:var(--r);color:#fff}body.hc .sos{color:#000}.cb{background:var(--p);color:var(--pt)}
+.ov{position:fixed;inset:0;background:#0009;z-index:9;display:flex;align-items:center;justify-content:center;padding:1rem}
+.mo{background:var(--c);border:3px solid var(--p);border-radius:1.2rem;padding:1.2rem;max-width:560px;width:100%;max-height:92vh;overflow:auto}
+.msgs{max-height:260px;overflow:auto;border:2px solid var(--bd);border-radius:.8rem;padding:.5rem;margin:.5rem 0}
+.m{display:flex;gap:.4rem;align-items:center;margin:.3rem 0}.m div{background:var(--sb);color:var(--st);border-radius:.8rem;padding:.4rem .8rem;flex:1}.m.me div{background:var(--p);color:var(--pt)}
+body.hc .m div{color:#FFE600;border:1px solid #FFE600}
+.send{display:flex;gap:.5rem}.tabs{display:flex;gap:.5rem;flex-wrap:wrap;margin:.5rem 0}
+.star{font-size:2.2rem;background:none;border:0;color:var(--p);padding:0 .1rem}
+#toast{position:fixed;left:50%;transform:translateX(-50%);bottom:5.5rem;background:var(--t);color:var(--bg);padding:.8rem 1.2rem;border-radius:1rem;z-index:12;font-weight:800;max-width:90%}
+body.easy .btn,body.easy .opt{font-size:1.3rem;padding:1.1rem 1.4rem}body.easy .adv{display:none}
+@media(prefers-reduced-motion:no-preference){.bar i{transition:width .3s}}
+</style></head><body>
+<header id="hd"></header><main id="app"></main>
+<div class="fab"><button class="sos" data-a="md" data-v="sos">🆘 SOS <span class="adv">Emergencia</span></button><button class="cb" data-a="md" data-v="chat">💬 Chat <span class="adv">de ayuda</span></button></div>
+<div id="md"></div><div id="toast" role="status" hidden></div>
+<script>
+const $=s=>document.querySelector(s),esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const d0=n=>{const x=new Date();x.setDate(x.getDate()+n);return x.toISOString().slice(0,10)};
+const ADDR='Calle Ercilla 15, Indautxu, Bilbao';
+function seed(){return{lang:'es',fs:1,hc:0,easy:0,
+u:{name:'Aimar Fernandez',user:'@aimar_bilbao',contact:'aimar@hurbil.eus',pass:'hurbil123',addr:ADDR,fam:'600123456',on:1},
+reqs:[{id:1,c:0,o:1,t:'',date:d0(1),time:'11:00',h:2,addr:ADDR,ppl:1,tot:26,st:'assigned',w:'Ander Herrera'},
+{id:2,c:1,o:1,t:'',date:d0(-2),time:'17:00',h:1,addr:ADDR,ppl:1,tot:13,st:'done',w:'Eder Fernandez',doneAt:Date.now()-72e5}],
+fol:[],plans:[{id:1,t:['Paseo por Doña Casilda','Doña Casilda inguruko ibilaldia'],when:['Mañana · 11:00','Bihar · 11:00'],h:2,max:3,m:['Maite','Koldo'],msgs:[{n:'Maite',t:'¡Hola! Yo llevo un termo de café, ¿os apuntáis?'},{n:'Koldo',t:'Me apunto, ¡qué ganas de pasear!'}]},
+{id:2,t:['Café en Indautxu','Kafea Indautxun'],when:['Jueves · 17:00','Osteguna · 17:00'],h:1,max:3,m:['Arantxa'],msgs:[{n:'Arantxa',t:'Buenas tardes, ¿quién se anima a tomar un café?'}]}],
+team:[{f:'h',t:'¡Hola, Aimar! Somos el equipo de Hurbil. ¿En qué te podemos ayudar?'}]}}
+let db;try{db=JSON.parse(localStorage.getItem('hurbil'))}catch(e){}db=db||seed();
+const save=()=>{try{localStorage.setItem('hurbil',JSON.stringify(db))}catch(e){}};
+const _=(a,b)=>db.lang=='eu'?b:a,L=()=>db.lang=='eu'?1:0,fn=()=>db.u.name.split(' ')[0]||'Aimar';
+const fmt=n=>n.toFixed(2).replace('.',',')+' €';
+const W=['Aimar Fernandez','Ander Herrera','Eder Fernandez','Eidan Irastorza'];
+const ST={pending:['Pendiente de asignar','Esleitzeko zain'],assigned:['Acompañante asignado','Laguntzailea esleituta'],ongoing:['En curso','Abian'],done:['Completada','Amaituta']};
+const C=[['🚶',['Paseo y compañía en el barrio','Auzoko ibilaldia eta konpainia'],[['Paseo tranquilo por el barrio','Auzoan ibilaldi lasaia'],['Acompañamiento a parques o zonas verdes (Doña Casilda, Abandoibarra...)','Parkeetara edo eremu berdeetara laguntza (Doña Casilda, Abandoibarra...)'],['Compañía para tomar un café o charlar','Kafea hartzeko edo berriketan aritzeko konpainia']]],
+['🛒',['Recados, farmacia o compra','Egitekoak, farmazia edo erosketak'],[['Compra en supermercado o tienda de barrio','Erosketak supermerkatuan edo auzoko dendan'],['Ir a la farmacia a recoger medicación','Farmaziara joan sendagaiak jasotzera'],['Recoger o enviar paquetes/correos','Paketeak edo posta jaso/bidali'],['Acompañamiento a hacer compras','Erosketak egiteko laguntza']]],
+['📱',['Ayuda con el móvil, citas o trámites','Mugikorrarekin, hitzorduekin edo izapideekin laguntza'],[['Configurar o entender el móvil/WhatsApp','Mugikorra/WhatsApp konfiguratu edo ulertu'],['Pedir cita médica o en Osakidetza','Hitzordua eskatu mediku-zerbitzuan edo Osakidetzan'],['Ayuda con trámites bancarios o papeles','Banku-izapideetan edo paperetan laguntza'],['Videollamada con familiares','Bideo-deia senideekin']]],
+['🏥',['Acompañamiento al centro de salud u hospital','Osasun-zentrora edo ospitalera laguntza'],[['Ir y volver del centro de salud','Osasun-zentrora joan-etorria'],['Acompañamiento a consulta en hospital (Basurto, Cruces, etc.)','Ospitaleko kontsultara laguntza (Basurto, Gurutzeta, etab.)'],['Recogida de recetas o resultados','Errezetak edo emaitzak jasotzea']]],
+['🏠',['Compañía y charla en casa','Konpainia eta berriketa etxean'],[['Lectura o juegos de mesa','Irakurketa edo mahai-jokoak'],['Charla y compañía en casa','Berriketa eta konpainia etxean'],['Álbumes de fotos y recuerdos','Argazki-albumak eta oroitzapenak']]],
+['🧺',['Pequeñas tareas del hogar y orden ligero','Etxeko lan txikiak eta ordena arina'],[['Ordenar habitaciones o armarios','Gelak edo armairuak ordenatu'],['Preparar comida sencilla','Janari sinplea prestatu'],['Regar plantas y cuidado básico del hogar','Landareak ureztatu eta etxeko oinarrizko zaintza']]],
+['✍️',['Otro servicio','Beste zerbitzu bat'],[]]];
+const N=[{n:'Maite Ugarte',b:'Deusto',i:[['paseos','ibilaldiak'],['cine','zinema']]},{n:'Jon Etxebarria',b:'Santutxu',i:[['juegos de mesa','mahai-jokoak'],['fotografía','argazkigintza']]},{n:'Arantxa Gorostiza',b:'Abando',i:[['lectura','irakurketa'],['teatro','antzerkia']]},{n:'Koldo Aranburu',b:'Indautxu',i:[['café','kafea'],['música','musika']]}];
+const LOGO=`<svg viewBox="0 0 80 70" aria-hidden="true"><circle cx="20" cy="12" r="8" fill="#638BB2"/><rect x="11" y="23" width="18" height="40" rx="9" fill="#638BB2"/><circle cx="60" cy="12" r="8" fill="#74A88E"/><rect x="51" y="23" width="18" height="40" rx="9" fill="#74A88E"/><path d="M24 40H40" stroke="#638BB2" stroke-width="8" stroke-linecap="round"/><path d="M40 40H56" stroke="#74A88E" stroke-width="8" stroke-linecap="round"/></svg>`;
+const W0=()=>({s:1,cat:null,opt:null,txt:'',date:'',time:'',h:0,addr:db.u.addr||'',ppl:1});
+const w=W0(),tr={},lg={u:'',p:''},X={get db(){return db},w,tr,lg};
+let route=location.hash.slice(1)||'home',md=null,mt='team',ct='neigh',fl=false,oc=null,sp=false,pm='create',fo=false;
+const S=t=>`<button class="spk" data-a="say" data-t="${esc(t)}" aria-label="${_('Escuchar','Entzun')}">🔊</button>`;
+const say=t=>{if(!window.speechSynthesis)return;speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(t);u.lang=db.lang=='eu'?'eu-ES':'es-ES';u.rate=.9;speechSynthesis.speak(u)};
+const go=r=>{route=r;try{history.replaceState(null,'','#'+(r=='home'?'':r))}catch(e){}scrollTo(0,0)};
+const toast=m=>{const e=$('#toast');e.textContent=m;e.hidden=false;clearTimeout(toast.t);toast.t=setTimeout(()=>e.hidden=true,3500)};
+const fd=d=>new Date(d+'T12:00').toLocaleDateString(db.lang=='eu'?'eu':'es-ES',{weekday:'long',day:'numeric',month:'long'});
+const pr=(h,p)=>{const b=13*h,d=p==3?.2:p==2?.15:0;return{b,d,x:b*d,tot:b*(1-d)}};
+const stars=n=>'★'.repeat(n)+'☆'.repeat(5-n);
+const svc=r=>{const c=C[r.c],o=r.o=='o'||!c[2].length?r.t:c[2][r.o]?.[L()];return c[1][L()]+(o?': '+o:'')};
+const phone=p=>{p=String(p||'').replace(/\D/g,'');return p.length==9?'34'+p:p};
+const dl=r=>Math.max(0,Math.ceil((r.doneAt+864e5-Date.now())/36e5));
+const back=()=>`<a class="btn g" href="#" data-a="go" data-v="home">← ${_('Volver al inicio','Itzuli hasierara')}</a>`;
+const head=(t,x)=>`<div class="row"><h2 class="grow">${t}</h2>${S(x||t)}</div>`;
+
+function hdr(){const b=(a,v,t,p,l)=>`<button class="${a=='lang'?'':'ib'}" data-a="${a}" data-v="${v}" ${p!==undefined?`aria-pressed="${p}"`:''} aria-label="${l||t}">${t}</button>`;
+return`<div class="hw"><a href="#" class="lg" data-a="go" data-v="home" aria-label="Hurbil">${LOGO}<span><b>Hurbil</b><small>Siempre cerca de ti</small></span></a>
+<span>📍 Bilbao · <a href="tel:644270017">644 270 017</a></span>
+<div class="ct"><span class="seg" role="group" aria-label="Idioma / Hizkuntza">${b('lang','es','ES',db.lang=='es')}${b('lang','eu','EU',db.lang=='eu')}</span>
+${b('fs',-1,'A-',undefined,_('Letra más pequeña','Letra txikiagoa'))}${b('fs',1,'A+',undefined,_('Letra más grande','Letra handiagoa'))}${b('hc',0,'◐',!!db.hc,_('Alto contraste','Kontraste altua'))}
+<button class="sw" role="switch" aria-checked="${!!db.easy}" data-a="easy">${_('Modo Fácil','Modu Erraza')}</button></div></div>`}
+
+function home(){const n=fn(),t=_(`Hola, ${n}. Aquí tienes ayuda cerca de ti, sin prisas y con personas de confianza.`,`Kaixo, ${n}. Hemen duzu laguntza zure ondoan, presarik gabe eta konfiantzazko pertsonekin.`);
+const cs=[['help','🤝',_('Pedir ayuda','Laguntza eskatu')],['reqs','📋',_('Mis solicitudes','Nire eskaerak')],['comm','👥',_('Comunidad y planes','Komunitatea eta planak')],['prof','👤',_('Mi perfil / Cuenta','Nire profila / Kontua')]];
+const tm='Aimar Fernandez, Ander Herrera, Eder Fernandez, Eidan Irastorza';
+return`<div class="card"><div class="row"><h1 class="grow">${t}</h1>${S(t)}</div></div>
+<div class="grid">${cs.map(c=>`<div class="row" style="align-items:stretch"><a class="big" href="#${c[0]}" data-a="go" data-v="${c[0]}"><span>${c[1]}</span>${c[2]}</a>${S(c[2])}</div>`).join('')}</div>
+<div class="card adv"><div class="row"><h2 class="grow">${_('Personas de confianza','Konfiantzazko pertsonak')}</h2>${S(_('Llámanos al 644 270 017. Equipo: ','Deitu iezaguzu 644 270 017 zenbakira. Taldea: ')+tm)}</div>
+<p>📞 <a href="tel:644270017">644 270 017</a> · 📍 Bilbao (Bizkaia)</p><p>${_('Equipo fundador','Sortzaileen taldea')}: <b>${tm}</b></p></div>`}
+
+function ok(){const x=w.s;return x==1?(w.cat!=null&&(C[w.cat][2].length?(w.opt!=null&&(w.opt!='o'||w.txt.trim())):w.txt.trim())):x==2?!!(w.date&&w.time):x==3?!!(w.h&&w.addr.trim()):true}
+function help(){const q=(k,v,t)=>`<button class="opt ${(k=='d'?w.date==d0(+v):w.time==v)?'on':''}" data-a="q" data-k="${k}" data-v="${v}">${t}</button>`;let h='',p=pr(w.h||0,w.ppl);
+if(w.s==1){h=head(_('¿Qué necesitas?','Zer behar duzu?'))+`<div class="grid">${C.map((c,i)=>`<div class="row"><button class="opt ${w.cat==i?'on':''}" data-a="cat" data-v="${i}" aria-pressed="${w.cat==i}"><span class="ic">${c[0]}</span>${c[1][L()]}</button>${S(c[1][L()])}</div>`).join('')}</div>`;
+if(w.cat!=null){const c=C[w.cat];h+=`<div class="card"><div class="row"><h3 class="grow">${c[1][L()]}</h3>${S(c[1][L()])}</div>`;
+if(c[2].length)h+=c[2].map((o,i)=>`<div class="row" style="margin:.4rem 0"><button class="opt ${w.opt===i?'on':''}" data-a="opt" data-v="${i}" aria-pressed="${w.opt===i}">${o[L()]}</button>${S(o[L()])}</div>`).join('')+`<div class="row"><button class="opt ${w.opt=='o'?'on':''}" data-a="opt" data-v="o">✏️ ${_('Otro (especificar)','Beste bat (zehaztu)')}</button>${S(_('Otro, especificar','Beste bat, zehaztu'))}</div>`;
+if(!c[2].length||w.opt=='o')h+=`<div class="row"><textarea class="grow" rows="3" data-f="w.txt" placeholder="${_('Cuéntanos qué necesitas','Kontatu zer behar duzun')}" aria-label="${_('Describe el servicio','Deskribatu zerbitzua')}">${esc(w.txt)}</textarea>${S(_('Cuéntanos qué necesitas','Kontatu zer behar duzun'))}</div>`;h+='</div>'}}
+if(w.s==2)h=head(_('¿Qué día y a qué hora?','Zein egunetan eta ordutan?'))+`<div class="grid">${q('d',0,_('Hoy','Gaur'))}${q('d',1,_('Mañana','Bihar'))}${q('t','11:00',_('Por la mañana 11:00','Goizean 11:00'))}${q('t','17:00',_('Por la tarde 17:00','Arratsaldean 17:00'))}</div>
+<div class="card grid"><div><label for="dd">${_('Fecha','Data')}</label><input id="dd" type="date" min="${d0(0)}" value="${w.date}" data-f="w.date"></div><div><label for="tt">${_('Hora','Ordua')}</label><input id="tt" type="time" value="${w.time}" data-f="w.time"></div></div>`;
+if(w.s==3)h=head(_('¿Cuántas horas y dónde en Bilbao?','Zenbat ordu eta non Bilbon?'))+`<div class="grid">${[1,2,3,4].map(n=>`<button class="opt ${w.h==n?'on':''}" data-a="hr" data-v="${n}">⏱️ ${n} h</button>`).join('')}</div>
+<div class="card"><div class="row"><b class="grow">${w.h?`${w.h} h × 13 €/h = ${fmt(13*w.h)}`:_('Elige las horas: 13 € cada hora','Aukeratu orduak: 13 € ordu bakoitzeko')}</b>${S(w.h?`${w.h} ${_('horas, 13 euros la hora, total','ordu, 13 euro orduko, guztira')} ${fmt(13*w.h)}`:_('Trece euros la hora','Hamahiru euro orduko'))}</div>
+<label for="ad">${_('Dirección en Bilbao','Helbidea Bilbon')}</label><div class="row"><input class="grow" id="ad" data-f="w.addr" value="${esc(w.addr)}" placeholder="Calle, nº, barrio"><div>${S(_('Dirección en Bilbao','Helbidea Bilbon'))}</div></div></div>`;
+if(w.s==4){const c=_('Si sois 2 personas, 15 % de descuento. Si sois 3 personas, 20 % de descuento.','2 pertsona bazarete, % 15eko deskontua. 3 pertsona bazarete, % 20koa.');
+const sm=`${svc({c:w.cat,o:w.opt,t:w.txt})}. ${fd(w.date)}, ${w.time}. ${w.h} h. ${w.addr}. ${_('Total','Guztira')} ${fmt(p.tot)}`;
+h=head(_('¿Quieres compartir plan con vecinos?','Planak bizilagunekin partekatu nahi duzu?'))+`<div class="card"><div class="row"><p class="grow"><b>${c}</b></p>${S(c)}</div><div class="grid">${[1,2,3].map(n=>`<button class="opt ${w.ppl==n?'on':''}" data-a="ppl" data-v="${n}">${['🙂 '+_('Solo yo','Ni bakarrik'),'👫 '+_('2 personas · −15 %','2 pertsona · −% 15'),'👨‍👩‍👦 '+_('3 personas · −20 %','3 pertsona · −% 20')][n-1]}</button>`).join('')}</div></div>
+<div class="card"><div class="row"><h3 class="grow">${_('Resumen','Laburpena')}</h3>${S(sm)}</div><p>🤝 ${svc({c:w.cat,o:w.opt,t:w.txt})}</p><p>📅 ${fd(w.date)} · ${w.time}</p><p>⏱️ ${w.h} h · 📍 ${esc(w.addr)}</p><p>${fmt(p.b)}${p.d?` − ${fmt(p.x)} (${p.d*100} %)`:''}</p><p style="font-size:1.5rem"><b>${_('Total','Guztira')}: ${fmt(p.tot)}</b></p></div>`}
+return`<div class="row" style="justify-content:space-between">${back()}<b>${_('Paso','Urratsa')} ${w.s} ${_('de','/')} 4</b>${S(`${_('Paso','Urratsa')} ${w.s} ${_('de','/')} 4`)}</div><div class="bar" role="progressbar" aria-valuemin="1" aria-valuemax="4" aria-valuenow="${w.s}" style="margin:.6rem 0"><i style="width:${w.s*25}%"></i></div>${h}
+<div class="row" style="justify-content:space-between;margin-top:1rem">${w.s>1?`<button class="btn g" data-a="pv">← ${_('Anterior','Aurrekoa')}</button>`:'<span></span>'}${w.s<4?`<button class="btn" id="nx" data-a="nx" ${ok()?'':'disabled'}>${_('Siguiente','Hurrengoa')} →</button>`:`<button class="btn s" data-a="ok">✅ ${_('Confirmar solicitud','Eskaera baieztatu')}</button>`}</div>`}
+
+function reqs(){return back()+head(_('Mis solicitudes','Nire eskaerak'))+(db.reqs.length?db.reqs.map(r=>{const s=ST[r.st][L()],t=`${svc(r)}. ${fd(r.date)}, ${r.time}. ${s}`,x=tr[r.id]||{};let e='';
+if(r.st=='done'){if(r.rate)e=`<p><span class="star" style="cursor:default">${stars(r.rate.s)}</span> ${esc(r.rate.c)}</p>`;else if(dl(r)<=0)e=`<p class="mut">⌛ ${_('El plazo de 24 horas para valorar ha terminado.','Baloratzeko 24 orduko epea amaitu da.')}</p>`;
+else e=`<div class="card" style="background:var(--sb)"><div class="row"><b class="grow">⭐ ${_('Valora a','Baloratu')} ${esc(r.w)} · ${_('te quedan','geratzen zaizkizu')} ${dl(r)} h</b>${S(_('Valora el servicio con estrellas','Baloratu zerbitzua izarrekin'))}</div>${[1,2,3,4,5].map(n=>`<button class="star" data-a="star" data-id="${r.id}" data-v="${n}" aria-label="${n}">${n<=(x.s||0)?'★':'☆'}</button>`).join('')}<textarea rows="2" data-f="tr.${r.id}.c" placeholder="${_('Escribe un comentario','Idatzi iruzkin bat')}">${esc(x.c||'')}</textarea><button class="btn" style="margin-top:.5rem" data-a="rate" data-id="${r.id}">${_('Enviar valoración','Balorazioa bidali')}</button></div>`}
+return`<article class="card"><div class="row"><h3 class="grow">${svc(r)}</h3>${S(t)}</div><p>📅 ${fd(r.date)} · ${r.time} · ${r.h} h · ${fmt(r.tot)}</p><p>📍 ${esc(r.addr)}</p><p><span class="bd">${s}</span> ${r.w?'· 👤 '+esc(r.w):''}</p>
+<button class="btn s" data-a="wa" data-id="${r.id}">💬 ${_('Avisar a mi familiar por WhatsApp','Abisatu nire senideari WhatsApp bidez')}</button>${e}</article>`}).join(''):`<div class="card"><p>${_('Aún no tienes solicitudes.','Oraindik ez duzu eskaerarik.')}</p><a class="btn" href="#help" data-a="go" data-v="help">${_('Pedir ayuda','Laguntza eskatu')}</a></div>`)}
+
+const msgs=(a,me)=>`<div class="msgs">${a.map(m=>`<div class="m ${m.n==me||m.f=='u'?'me':''}"><div>${m.n?`<b>${esc(m.n)}:</b> `:''}${esc(m.t)}</div>${S((m.n?m.n+': ':'')+m.t)}</div>`).join('')}</div>`;
+const sendBox=v=>`<div class="send"><input aria-label="${_('Escribe un mensaje','Idatzi mezu bat')}" placeholder="${_('Escribe un mensaje','Idatzi mezu bat')}"><button class="btn" data-a="send" data-v="${v}">${_('Enviar','Bidali')}</button></div>`;
+function plan(p){const c=p.m.length,d=c>=3?20:c==2?15:0,me=p.m.includes(fn()),full=c>=p.max&&!me,tt=p.t[L()],wh=p.when[L()];
+return`<article class="card"><div class="row"><h3 class="grow">${tt}</h3>${S(`${tt}. ${wh}. ${c} ${_('de','/')} ${p.max} ${_('plazas','leku')}`)}</div><p>📅 ${wh} · ${p.h} h</p><p>👥 ${c}/${p.max} · ${_('quedan','geratzen dira')} ${p.max-c}</p><p><span class="bd">${d?`−${d} %`:_('Descuento desde 2 personas','Deskontua 2 pertsonatik')}</span> ${fmt(pr(p.h,c).tot)}/${_('persona','pertsona')}</p><p class="mut">${_('Participan','Parte-hartzaileak')}: ${p.m.map(esc).join(', ')}</p>
+<div class="row"><button class="btn ${me?'g':'s'}" data-a="join" data-v="${p.id}" ${full?'disabled':''}>${me?_('Salir del plan','Planetik atera'):full?_('Completo','Beteta'):_('Unirme al plan','Planera batu')}</button><button class="btn g" data-a="pchat" data-v="${p.id}">💬 ${_('Chat de grupo','Talde-txata')}</button></div>${oc==p.id?msgs(p.msgs,fn())+sendBox('p'+p.id):''}</article>`}
+function comm(){let h=back()+head(_('Comunidad y planes','Komunitatea eta planak'))+`<div class="tabs" role="tablist">${[['neigh',_('Vecinos del barrio · Seguir a gente','Auzokideak · Jarraitu jendea')],['plans',_('Planes conjuntos','Plan bateratuak')]].map(t=>`<button class="btn ${ct==t[0]?'':'g'}" role="tab" aria-selected="${ct==t[0]}" data-a="tab" data-v="${t[0]}">${t[1]}</button>`).join('')}</div>`;
+if(ct=='neigh')h+=`<div class="grid">${N.map(n=>{const f=db.fol.includes(n.n),t=`${n.n}, ${n.b}. ${_('Intereses en común','Interes komunak')}: ${n.i.map(i=>i[L()]).join(', ')}`;return`<article class="card"><div class="row"><h3 class="grow">👤 ${n.n}</h3>${S(t)}</div><p>📍 ${n.b}</p><p>${_('Intereses en común','Interes komunak')}: ${n.i.map(i=>`<span class="bd">${i[L()]}</span>`).join(' ')}</p><button class="btn ${f?'g':'s'}" aria-pressed="${f}" data-a="fol" data-v="${n.n}">${f?'✓ '+_('Siguiendo','Jarraitzen'):'+ '+_('Seguir','Jarraitu')}</button></article>`}).join('')}</div>`;
+else{const ps=fl?db.plans.filter(p=>p.m.some(m=>db.fol.some(f=>f.startsWith(m)))):db.plans;h+=`<button class="opt ${fl?'on':''}" aria-pressed="${fl}" data-a="flt">${fl?'✓ ':''}${_('Solo planes de gente que sigo','Jarraitzen dudan jendearen planak bakarrik')}</button>`+(ps.length?ps.map(plan).join(''):`<div class="card"><p>${_('Ningún plan de la gente que sigues. Sigue a más vecinos.','Jarraitzen duzun jendearen planik ez. Jarraitu auzokide gehiago.')}</p></div>`)}
+return h}
+
+function prof(){const u=db.u,f=(k,l,ty)=>`<label for="f${k}">${l}</label><div class="row"><input class="grow" id="f${k}" type="${k=='pass'&&!sp?'password':ty||'text'}" data-f="db.u.${k}" value="${esc(u[k])}">${k=='pass'?`<button class="ib" data-a="pw">${sp?_('Ocultar','Ezkutatu'):_('Mostrar','Erakutsi')}</button>`:''}${S(l)}</div>`;
+const flds=f('name',_('Nombre completo','Izen osoa'))+f('user',_('Nombre de usuario (ej. @aimar_bilbao)','Erabiltzaile-izena (adib. @aimar_bilbao)'))+f('contact',_('Correo electrónico o teléfono','Posta elektronikoa edo telefonoa'))+f('pass',_('Contraseña','Pasahitza'))+f('addr',_('Barrio o dirección en Bilbao','Auzoa edo helbidea Bilbon'))+f('fam',_('Teléfono del familiar de confianza (WhatsApp)','Konfiantzazko senidearen telefonoa (WhatsApp)'),'tel');
+let h=back()+head(_('Mi perfil / Cuenta','Nire profila / Kontua'));
+if(u.on)return h+`<div class="card">${flds}<div class="row" style="margin-top:1rem"><button class="btn s" data-a="prof">${_('Guardar datos','Datuak gorde')}</button><button class="btn g" data-a="out">${_('Cerrar sesión','Saioa itxi')}</button></div></div>`;
+return h+`<div class="tabs">${[['create',_('Crear cuenta','Kontua sortu')],['login',_('Iniciar sesión','Saioa hasi')]].map(t=>`<button class="btn ${pm==t[0]?'':'g'}" data-a="mode" data-v="${t[0]}">${t[1]}</button>`).join('')}</div><div class="card">${pm=='create'?flds+`<button class="btn s" style="margin-top:1rem" data-a="auth" data-v="c">${_('Crear cuenta','Kontua sortu')}</button>`:`<label for="lu">${_('Usuario o correo/teléfono','Erabiltzailea edo posta/telefonoa')}</label><input id="lu" data-f="lg.u"><label for="lp">${_('Contraseña','Pasahitza')}</label><input id="lp" type="password" data-f="lg.p"><button class="btn s" style="margin-top:1rem" data-a="auth" data-v="l">${_('Iniciar sesión','Saioa hasi')}</button>`}</div>`}
+
+function admin(){const sel=(r,k,o)=>`<select data-a="adm" data-k="${k}" data-id="${r.id}" aria-label="${k}">${o.map(x=>`<option value="${x[0]}" ${r[k]==x[0]?'selected':''}>${x[1]}</option>`).join('')}</select>`;
+return back()+`<h2>🔧 Admin</h2>`+db.reqs.map(r=>`<div class="card"><b>${svc(r)}</b><p>${fd(r.date)} · ${r.time} · ${r.h} h · ${esc(r.addr)}</p><div class="grid"><div><label>${_('Acompañante','Laguntzailea')}</label>${sel(r,'w',[['','—'],...W.map(x=>[x,x])])}</div><div><label>${_('Estado','Egoera')}</label>${sel(r,'st',Object.keys(ST).map(k=>[k,ST[k][L()]]))}</div></div></div>`).join('')
++`<div class="card"><h3>⭐ ${_('Valoraciones','Balorazioak')}</h3>${W.map(n=>{const a=db.reqs.filter(r=>r.w==n&&r.rate),m=a.length?a.reduce((s,r)=>s+r.rate.s,0)/a.length:0;return`<p><b>${n}</b>: ${a.length?`${stars(Math.round(m))} ${m.toFixed(1).replace('.',',')} (${a.length})`:_('Sin valoraciones','Balorazio gabe')}</p>${a.map(r=>`<p class="mut">“${esc(r.rate.c)||'—'}”</p>`).join('')}`}).join('')}</div><button class="btn g" data-a="rst">${_('Restablecer datos de muestra','Lagin-datuak berrezarri')}</button>`}
+
+function modal(){if(!md)return'';let b='';
+if(md=='sos'){const m=encodeURIComponent(`🆘 URGENTE: ${db.u.name} necesita ayuda. Dirección: ${db.u.addr||'Bilbao'}. Hurbil 644 270 017`);
+b=`<div class="row"><h2 class="grow" style="color:var(--r)">🆘 ${_('Emergencia','Larrialdia')}</h2>${S(_('Ayuda inmediata. Pulsa llamar al 644 270 017.','Berehalako laguntza. Sakatu 644 270 017 zenbakira deitzeko.'))}</div><p><b>${_('Si es muy grave, llama también al 112.','Oso larria bada, deitu 112ra ere.')}</b></p><div class="row" style="flex-direction:column;align-items:stretch"><a class="btn" href="tel:644270017">📞 ${_('Llamar a Hurbil','Hurbilera deitu')} · 644 270 017</a><a class="btn s" target="_blank" rel="noopener" href="https://wa.me/${phone(db.u.fam)||''}?text=${m}">💬 ${_('Avisar a mi familiar por WhatsApp','Abisatu nire senideari WhatsApp bidez')}</a><a class="btn g" target="_blank" rel="noopener" href="https://wa.me/34644270017?text=${m}">🚨 ${_('Enviar alerta urgente con mi dirección','Bidali larrialdi-alerta nire helbidearekin')}</a></div><p class="mut">📍 ${esc(db.u.addr||'Bilbao')}</p>`}
+else b=`<div class="row"><h2 class="grow">💬 ${_('Chat de ayuda','Laguntza-txata')}</h2>${S(_('Chat de ayuda con el equipo de Hurbil','Hurbilen taldearekin laguntza-txata'))}</div><div class="tabs">${[['team',_('Equipo Hurbil','Hurbil taldea')],['plans',_('Planes y acompañantes','Planak eta laguntzaileak')]].map(t=>`<button class="btn ${mt==t[0]?'':'g'}" data-a="tm" data-v="${t[0]}">${t[1]}</button>`).join('')}</div>`+(mt=='team'?msgs(db.team,'')+sendBox('team'):db.plans.map(p=>`<div class="row" style="margin:.4rem 0"><button class="opt" data-a="gop" data-v="${p.id}">💬 ${p.t[L()]}</button>${S(p.t[L()])}</div>`).join(''));
+return`<div class="ov"><div class="mo" role="dialog" aria-modal="true">${b}<button class="btn g" style="margin-top:1rem" data-a="close">✕ ${_('Cerrar','Itxi')}</button></div></div>`}
+
+function render(){const h=route,pg={help,reqs,comm,prof,admin}[h]||home;
+document.documentElement.lang=db.lang;document.body.className=(db.hc?'hc ':'')+(db.easy?'easy':'');document.documentElement.style.fontSize=(16+db.fs*2+(db.easy?4:0))+'px';
+$('#hd').innerHTML=hdr();$('#app').innerHTML=pg()+(h?'':'')+`<footer class="adv" style="margin-top:2rem;text-align:center"><small>Hurbil · Bilbao · 644 270 017 · <a href="#admin" data-a="go" data-v="admin" style="opacity:.6">admin</a></small></footer>`;$('#md').innerHTML=modal();
+document.querySelectorAll('.msgs').forEach(e=>e.scrollTop=e.scrollHeight);if(fo){const i=document.querySelector('.send input');i&&i.focus();fo=false}}
+
+function act(el){const a=el.dataset.a,v=el.dataset.v,id=+el.dataset.id,r=db.reqs.find(x=>x.id==id);
+switch(a){
+case'say':say(el.dataset.t);return;
+case'lang':db.lang=v;break;case'fs':db.fs=Math.max(-1,Math.min(6,db.fs+ +v));break;case'hc':db.hc^=1;break;case'easy':db.easy^=1;break;
+case'md':md=v;break;case'close':md=null;break;case'go':go(v);break;case'tm':mt=v;break;
+case'cat':w.cat=+v;w.opt=null;w.txt='';break;case'opt':w.opt=v=='o'?'o':+v;if(v!='o')w.txt='';break;
+case'q':if(el.dataset.k=='d')w.date=d0(+v);else w.time=v;break;
+case'hr':w.h=+v;break;case'ppl':w.ppl=+v;break;case'nx':w.s++;break;case'pv':w.s--;break;
+case'ok':{if(db.reqs.some(x=>x.st!='done'&&x.date==w.date&&x.time==w.time)){toast(_('Ya tienes un servicio a esa hora. Elige otra hora.','Ordu horretan zerbitzu bat duzu jada. Aukeratu beste ordu bat.'));w.s=2;break}
+db.reqs.unshift({id:Date.now(),c:w.cat,o:w.opt,t:w.txt,date:w.date,time:w.time,h:w.h,addr:w.addr,ppl:w.ppl,tot:pr(w.h,w.ppl).tot,st:'pending',w:''});if(!db.u.addr)db.u.addr=w.addr;Object.assign(w,W0());toast(_('¡Solicitud confirmada! Te asignaremos un acompañante.','Eskaera baieztatu da! Laguntzaile bat esleituko dizugu.'));go('reqs');break}
+case'wa':{const p=phone(db.u.fam);if(!p){toast(_('Añade el teléfono de tu familiar en el perfil.','Gehitu zure senidearen telefonoa profilean.'));go('prof');render();return}
+open(`https://wa.me/${p}?text=${encodeURIComponent(`Hola, te aviso de mi cita con Hurbil: ${svc(r)}. ${fd(r.date)} a las ${r.time}, en ${r.addr}. Estado: ${ST[r.st][0]}. Hurbil: 644 270 017`)}`,'_blank','noopener');return}
+case'star':tr[id]={...tr[id],s:+v};break;
+case'rate':{const x=tr[id];if(!x?.s){toast(_('Elige de 1 a 5 estrellas.','Aukeratu 1 eta 5 izar artean.'));return}if(dl(r)<=0){toast(_('El plazo de 24 horas ha terminado.','24 orduko epea amaitu da.'));break}r.rate={s:x.s,c:x.c||''};break}
+case'fol':db.fol=db.fol.includes(v)?db.fol.filter(x=>x!=v):[...db.fol,v];break;
+case'tab':ct=v;break;case'flt':fl=!fl;break;
+case'join':{const p=db.plans.find(x=>x.id==+v),n=fn();p.m=p.m.includes(n)?p.m.filter(x=>x!=n):[...p.m,n];break}
+case'pchat':oc=oc==+v?null:+v;break;
+case'gop':md=null;ct='plans';oc=+v;go('comm');break;
+case'send':{const t=el.parentElement.querySelector('input').value.trim();if(!t)return;fo=true;
+if(v=='team'){db.team.push({f:'u',t});setTimeout(()=>{db.team.push({f:'h',t:'Gracias por escribirnos. Te responderemos enseguida o te llamamos al número que nos has dado.'});save();render()},900)}
+else db.plans.find(x=>x.id==+v.slice(1)).msgs.push({n:fn(),t});break}
+case'pw':sp=!sp;break;case'mode':pm=v;break;case'prof':toast(_('Datos guardados.','Datuak gordeta.'));break;
+case'auth':if(v=='c'){if(!db.u.user||!db.u.pass||!db.u.name){toast(_('Rellena nombre, usuario y contraseña.','Bete izena, erabiltzailea eta pasahitza.'));return}db.u.on=1}
+else{if((lg.u==db.u.user||lg.u==db.u.contact)&&lg.p==db.u.pass)db.u.on=1;else{toast(_('Usuario o contraseña incorrectos.','Erabiltzaile edo pasahitz okerra.'));return}}break;
+case'out':db.u.on=0;break;
+case'adm':{r[el.dataset.k]=el.value;if(el.dataset.k=='st'&&el.value=='done'&&!r.doneAt)r.doneAt=Date.now();break}
+case'rst':db=seed();break}
+save();render()}
+document.addEventListener('click',e=>{const el=e.target.closest('[data-a]');if(e.target.classList.contains('ov')){md=null;render();return}if(el&&el.tagName!='SELECT'){if(el.dataset.a=='go')e.preventDefault();act(el)}});
+document.addEventListener('change',e=>{if(e.target.tagName=='SELECT'&&e.target.dataset.a)act(e.target)});
+document.addEventListener('input',e=>{const f=e.target.dataset.f;if(!f)return;const k=f.split('.');let o=X[k[0]];for(const p of k.slice(1,-1))o=o[p]??={};o[k[k.length-1]]=e.target.value;save();if(k[0]=='w'){const n=$('#nx');if(n)n.disabled=!ok()}});
+document.addEventListener('keydown',e=>{if(e.key=='Escape'&&md){md=null;render()}if(e.key=='Enter'&&e.target.closest('.send')&&e.target.tagName=='INPUT')e.target.parentElement.querySelector('button').click()});
+addEventListener('hashchange',()=>{route=location.hash.slice(1)||'home';scrollTo(0,0);render()});render();
+</script></body></html>
